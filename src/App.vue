@@ -5,7 +5,6 @@
         <v-list-tile 
           v-for="item in menuItems" 
           :key="item.title"
-          router
           :to="item.link">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -27,7 +26,6 @@
           flat 
           v-for="item in menuItems" 
           :key="item.title"
-          router
           :to="item.link">
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
@@ -46,7 +44,7 @@
       return {
         sideNav: false,
         menuItems: [
-          { icon: 'supervisor_account', title: 'View Meetups', link: '/meetup' },
+          { icon: 'supervisor_account', title: 'View Meetups', link: '/meetups' },
           { icon: 'room', title: 'Organize Meetup', link: '/meetup/new' },
           { icon: 'person', title: 'Profile', link: '/profile' },
           { icon: 'face', title: 'Sign up', link: '/signup' },
