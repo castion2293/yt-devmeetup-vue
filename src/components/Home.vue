@@ -33,12 +33,9 @@
 
 <script>
   export default {
-    data () {
-      return {
-        meetups: [
-          { imageUrl: 'https://www.urlaubsguru.de/wp-content/uploads/2016/03/time-square-new-york-city-istock-487537456-2.jpg', id: '1', title: 'Meetup in New York' },
-          { imageUrl: 'http://www.telegraph.co.uk/content/dam/Travel/2016/August/Paris-travel-AP65117955-xlarge.jpg', id: 'adfasdfdsf', title: 'meetup in paris' }
-        ]
+    computed: {
+      meetups () {
+        return this.$store.getters.featureMeetups
       }
     },
     methods: {
