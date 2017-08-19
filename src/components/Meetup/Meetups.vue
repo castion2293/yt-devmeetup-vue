@@ -35,11 +35,17 @@
 </template>
 
 <<script>
+  import { mapGetters } from 'vuex'
+
   export default {
     computed: {
-      meetups () {
-        return this.$store.getters.loadedMeetups
-      }
+      ...mapGetters({
+        meetups: 'loadedMeetups'
+      })
+
+      // meetups () {
+      //   return this.$store.getters.loadedMeetups
+      // }
     }
   }
 </script>

@@ -32,11 +32,16 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     computed: {
-      meetups () {
-        return this.$store.getters.featureMeetups
-      }
+      ...mapGetters({
+        meetups: 'featureMeetups'
+      })
+      // meetups () {
+      //   return this.$store.getters.featureMeetups
+      // }
     },
     methods: {
       onLoadMeetup (id) {

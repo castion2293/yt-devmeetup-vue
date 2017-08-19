@@ -6,8 +6,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      { imageUrl: 'https://www.urlaubsguru.de/wp-content/uploads/2016/03/time-square-new-york-city-istock-487537456-2.jpg', id: 'sadfdsfasasdfa', title: 'Meetup in New York', date: '2017-07-17' },
-      {imageUrl: 'http://www.telegraph.co.uk/content/dam/Travel/2016/August/Paris-travel-AP65117955-xlarge.jpg', id: 'adfasdfdsf', title: 'meetup in paris', date: '2017-07-19'}
+      { imageUrl: 'https://www.urlaubsguru.de/wp-content/uploads/2016/03/time-square-new-york-city-istock-487537456-2.jpg', id: 'sadfdsfasasdfa', title: 'Meetup in New York', date: '2017-07-17', location: 'New York', description: 'New York New York' },
+      {imageUrl: 'http://www.telegraph.co.uk/content/dam/Travel/2016/August/Paris-travel-AP65117955-xlarge.jpg', id: 'adfasdfdsf', title: 'meetup in paris', date: '2017-07-19', location: 'Paris', description: 'It\'s Paris'}
     ],
     user: {
       id: 'akdfjals',

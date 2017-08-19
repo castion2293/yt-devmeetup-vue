@@ -12,8 +12,8 @@
                   > 
                   </v-card-media>
                   <v-card-text>
-                    <div class="info--text">{{ meetup.date }} - Where it takes place</div>
-                    <div>lorem isdfsaklandkfjaks;lfj dsfjsdkjfkjaskjdflfjal</div>
+                    <div class="info--text">{{ meetup.date }} - {{ meetup.location }}</div>
+                    <div>{{ meetup.description }}</div>
                   </v-card-text>
                   <v-card-actions>
                       <v-spacer></v-spacer>
@@ -26,11 +26,18 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     props: ['id'],
     computed: {
+      ...mapGetters({
+        meetupfind: 'loadedMeetup'
+      }),
+
       meetup () {
-        return this.$store.getters.loadedMeetup(this.id)
+        // return this.$store.getters.loadedMeetup(this.id)
+        return this.meetupfind(this.id)
       }
     }
   }
