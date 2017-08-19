@@ -77,7 +77,6 @@
                 class="primary" 
                 :disabled="!formIsValid"
                 type="submit">Create Meetup</v-btn>
-                {{ submittableDateTime }}
             </v-flex>
           </v-layout>
         </form>
@@ -105,7 +104,7 @@
         return this.title !== '' && this.location !== '' && this.imageUrl !== '' && this.description !== ''
       },
       submittableDateTime () {
-        const date = new Date(this.date.toString().replace(/-/, ','))
+        const date = new Date(this.date.toString().replace(/-/g, ','))
         if (typeof this.time === 'string') {
           // console.log(this.time)
           let hours = this.time.match(/^(\d+)/)[1]
