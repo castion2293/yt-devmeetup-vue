@@ -11,6 +11,14 @@
           </v-list-tile-action>
           <v-list-tile-content>{{ item.title }}</v-list-tile-content>
         </v-list-tile>
+        <v-list-tile 
+          v-if="userIsAuthenticated"
+          @click="onLogout">
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>Logout</v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar dark class="primary">
@@ -30,6 +38,13 @@
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
+        <v-btn 
+          flat 
+          v-if="userIsAuthenticated"
+          @click="onLogout">
+          <v-icon left dark>exit_to_app</v-icon>
+          Logout
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -39,7 +54,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     data () {
@@ -67,6 +82,14 @@
       },
       userIsAuthenticated () {
         return this.user !== null && this.user !== undefined
+      }
+    },
+    methods: {
+      ...mapActions({
+        logout: 'logout'
+      }),
+      onLogout () {
+        this.logout()
       }
     }
   }
