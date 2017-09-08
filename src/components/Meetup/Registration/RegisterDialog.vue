@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     props: ['meetupId'],
@@ -51,11 +51,15 @@
       }
     },
     methods: {
+      ...mapActions({
+        registerUserForMeetup: 'registerUserForMeetup',
+        unregisterUserFromMeetup: 'unregisterUserFromMeetup'
+      }),
       onAgree () {
         if (this.userIsRegistered) {
-          this.$store.dispatch('unregisterUserFromMeetup', this.meetupId)
+          this.unregisterUserFromMeetup(this.meetupId)
         } else {
-          this.$store.dispatch('registerUserForMeetup', this.meetupId)
+          this.registerUserForMeetup(this.meetupId)
         }
       }
     }
